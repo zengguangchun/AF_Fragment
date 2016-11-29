@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 /**
  * autour: 曾光春
- * date: $date$ $time$
- * update: $date$
+ * date: 2016/11/29 21:08
+ * update: 2016/11/29
  */
 public class FragmentA extends Fragment {
 
@@ -37,6 +37,13 @@ public class FragmentA extends Fragment {
         Log.e(TAG,"----->onCreateView");
        View view = View.inflate(getActivity(),R.layout.fragmenta,null);
         TextView tv = (TextView)view.findViewById(R.id.tf);
+        //接收activity传过来的值
+        Bundle bundle = getArguments();//从activity传过来的Bundle
+        String name = bundle.getString("str");
+        if(bundle!=null){
+            tv.setText(name);
+        }
+
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

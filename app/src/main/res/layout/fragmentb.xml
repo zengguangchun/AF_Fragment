@@ -7,5 +7,5 @@
         android:id="@+id/tfb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BBBBBBBBBBBBBBBBBBBBBBBB"/>
+        android:text="静态自定义布局"/>
 </LinearLayout>

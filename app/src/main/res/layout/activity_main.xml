@@ -1,33 +1,35 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
-    <LinearLayout
-        android:id="@+id/ll"
+
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
-
+        android:id="@+id/et_s"/>
         <Button
             android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Fragment1" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Fragment2" />
-    </LinearLayout>
 
+<!--动态-->
     <FrameLayout
         android:id="@+id/fl"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/ll" >
+        android:layout_height="200dp"
+      >
     </FrameLayout>
+    <!--静态-->
+<fragment
+    android:id="@+id/ff"
+    android:name="com.bawei.test.af_fragment.FragmentB"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-</RelativeLayout>
+</fragment>
+</LinearLayout>

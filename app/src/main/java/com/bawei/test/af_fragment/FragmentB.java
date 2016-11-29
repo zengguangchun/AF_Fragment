@@ -11,9 +11,10 @@ import android.widget.TextView;
 
 /**
  * autour: 曾光春
- * date: $date$ $time$
- * update: $date$
+ * date: 2016/11/29 21:09
+ * update: 2016/11/29
  */
+
 public class FragmentB extends Fragment {
     @Nullable
     @Override

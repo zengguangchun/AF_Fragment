@@ -8,7 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
+/**
+ * autour: 曾光春
+ * date: 2016/11/29 21:08
+ * update: 2016/11/29
+ */
 public class MainActivity extends AppCompatActivity {
 
     private String TAG="MainActivity";
@@ -19,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
         Log.e(TAG,"----->onCreate");
         // 找到控件
         Button   button1 = (Button) findViewById(R.id.button1);
-      //  Button   button2 = (Button) findViewById(R.id.button2);
+        final EditText editText = (EditText)findViewById(R.id.et_s);
+
 
         button1.setOnClickListener(new View.OnClickListener() {
 
@@ -27,34 +34,24 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //创建Fragment对象
                Fragment fragment1 = new FragmentA();
-                //支持Fragment的管理
+                //传值
+                Bundle bundle = new Bundle();
+                String strValue = editText.getText().toString().trim();
+                bundle.putString("str", strValue);
+                fragment1.setArguments(bundle);
+
+                //获取Fragment的容器
                 FragmentManager manager =getSupportFragmentManager();
-                //开始处理Fragment的管理
+                // 获取事务对象 FragmentTransaction，通过容器 ，开启事物
                 FragmentTransaction transaction = manager.beginTransaction();
-                //添加fragment数据
+                //事物添加（fragment的id，fragment的对象，名称）remove、replace、show、hide
                 transaction.add(R.id.fl, fragment1, "第一页面");
-                //提交数据
+                //提交事物
                 transaction.commit();
             }
         });
 
-//        button2.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                // 创建Fragment对象
-//                Fragment fragment2 = new FragmentB();
-//                // 支持Fragment管理
-//                FragmentManager fragmentManager = getSupportFragmentManager();
-//                // 开始处理Fragment的管理
-//                FragmentTransaction transaction = fragmentManager
-//                        .beginTransaction();
-//                // 添加Fragment数据
-//                transaction.add(R.id.fl, fragment2, "fragment2");
-//                // 提交数据
-//                transaction.commit();
-//            }
-//        });
+
     }
 
     @Override
